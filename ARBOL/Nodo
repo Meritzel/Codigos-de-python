@@ -1,0 +1,54 @@
+class Node: 
+
+    def __init__(self, data): 
+        self.data = data 
+        self.izquierdo = None
+        self.derecho = None
+ 
+
+
+def createNode(val):
+    newNode = Node(0)
+    newNode.val = val
+    NewNode.izquierdo = None
+    newNode.derecho = None
+    return newNode
+ 
+
+
+def inorder(root):
+    if (root == None):
+        return
+
+    inorder(root.izquierdo)
+    print( root.val, end = " ")
+    inorder(root.derecho)
+ 
+
+def reflejar(root, espejo):
+    if (root == None) :
+        espejo = None
+        return espejo
+
+
+    espejo = createNodo(root.val)
+    Espejo.derecho = reflejar(root.izquierdo ((espejo).derecho))
+    espejo.izquierdo = reflejar(root.derecho, ((espejo).izquierdo))
+    return espejo
+ 
+
+if __name__=='__main__': 
+    tree = createNodo(5)
+    tree.left = createNodo(3)
+    tree.right = createNodo(6)
+    tree.left.left = createNodo(2)
+    tree.left.right = createNodo(4)
+
+    print("Inorder of original tree: ")
+    inorder(tree)
+    espejo = None
+    espejo = reflejar(tree, espejo)
+ 
+
+    print("\nInorder of mirror tree: ")
+    inorder(espejo)
